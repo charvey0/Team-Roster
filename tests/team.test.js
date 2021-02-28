@@ -4,48 +4,43 @@ const Intern = require("../scripts/intern");
 const Manager = require("../scripts/manager");
 const Employee = require("../scripts/employee");
 
-describe("Algo", () => {
-  describe("reverse", () => {
-    // 'reverse' should reverse "Hello World!"
-    it("should reverse a given string", () => {
-      // In order to test the function, we need to create a working example. First we define 'str'. 
-      const str = "Hello World!";
-      // Next we define 'reversed' as the value of 'str' reversed.
-      const reversed = "!dlroW olleH";
-      // We pass 'str' into '.reverse()' and set that value equal to result
-      const result = new Algo().reverse(str);
-      // We expect 'result' to equal 'reversed' if the 'reverse()' function is working correctly.
-      expect(result).toEqual(reversed);
+describe("Team", () => {
+  describe("addEmployee", () => {
+    it("should add the employee's name to the roster", () => {
+      const roster = ["Manager's Name", "John Doe"];
+
+      const employee = new Employee("John Doe", 1, "johndoe@somemail.com");
+      const manager = new Manager("Manager's Name", 1, "manager@somemail.com", 12);
+      const team = new Team(manager);
+      team.add(employee);
+     
+      expect(team.roster()).toEqual(roster);
     });
   });
 
-  describe("isPalindrome", () => {
-    // First test for '.isPalindrome()'
-    it("should return true if a string is a palindrome", () => {
-      const str = "racecar";
+  describe("addIntern", () => {
+    it("should add the intern's name to the roster", () => {
+      const roster = ["Manager's Name", "Intern's Name"];
 
-      const result = new Algo().isPalindrome(str);
-
-      expect(result).toEqual(true);
-    });
-    // Second test for '.isPalindrome()'
-    it("should return false if a string is not a palindrome", () => {
-      const str = "neon";
-
-      const result = new Algo().isPalindrome(str);
-
-      expect(result).toEqual(false);
+      const intern = new Intern("Intern's Name", 1, "intern@somemail.com", "University of Somewhere");
+      const manager = new Manager("Manager's Name", 1, "manager@somemail.com", 12);
+      const team = new Team(manager);
+      team.add(intern);
+     
+      expect(team.roster()).toEqual(roster);
     });
   });
 
-  describe("capitalize", () => {
-    it("should take a string and return a new string with the first letter of each word capitalized", () => {
-      const str = "capitalize every first word of the string.";
-      const capitalized = "Capitalize Every First Word Of The String.";
-
-      const result = new Algo().capitalize(str);
-
-      expect(result).toEqual(capitalized);
+  describe("addEngineer", () => {
+    it("should add the engineer's name to the roster", () => {
+        const roster = ["Manager's Name", "Engineer's Name"];
+  
+        const engineer = new Engineer("Engineer's Name", 1, "engineer@somemail.com", "ngineer");
+        const manager = new Manager("Manager's Name", 1, "manager@somemail.com", 12);
+        const team = new Team(manager);
+        team.add(engineer);
+       
+        expect(team.roster()).toEqual(roster);
     });
   });
 });
