@@ -1,17 +1,25 @@
 class Team {
     constructor(manager) {
         this.manager = manager;
-        this.roster = [];
-        this.roster.push(manager.getName());
+        this.members = [];
+        this.members.push(manager);
     } // end constructor
 
     add(emp) {
-        this.roster.push(emp.getName());
+        this.members.push(emp);
     } // end method
 
     getRoster() {
-        return this.roster;
+        var roster = [];
+        this.members.forEach((emp) => {
+            roster.push(emp.getName());
+        });
+        return roster;
     } //end method
+
+    getMembers() {
+        return this.members;
+    }
 
 } // end class
 
