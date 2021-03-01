@@ -14,7 +14,7 @@ describe("Team", () => {
       const team = new Team(manager);
       team.add(employee);
      
-      expect(team.roster()).toEqual(roster);
+      expect(team.getRoster()).toEqual(roster);
     });
   });
 
@@ -27,7 +27,7 @@ describe("Team", () => {
       const team = new Team(manager);
       team.add(intern);
      
-      expect(team.roster()).toEqual(roster);
+      expect(team.getRoster()).toEqual(roster);
     });
   });
 
@@ -40,7 +40,7 @@ describe("Team", () => {
         const team = new Team(manager);
         team.add(engineer);
        
-        expect(team.roster()).toEqual(roster);
+        expect(team.getRoster()).toEqual(roster);
     });
   });
 });
