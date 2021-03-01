@@ -4,21 +4,19 @@ const Intern = require("../scripts/intern");
 const Manager = require("../scripts/manager");
 const Employee = require("../scripts/employee");
 
+
+
 describe("Team", () => {
   describe("addEmployee", () => {
-    it("should add the employee's name to the roster", () => {
-      const roster = ["Manager's Name", "John Doe"];
+    it("Initialize an instant of the Team class", () => {
 
-      const employee = new Employee("John Doe", 1, "johndoe@somemail.com");
-      const manager = new Manager("Manager's Name", 1, "manager@somemail.com", 12);
-      const team = new Team(manager);
-      team.add(employee);
+      const team = new Team();
      
-      expect(team.getRoster()).toEqual(roster);
+      expect(team).not.toBeNull();
     });
   });
 
-  describe("addIntern", () => {
+/*  describe("addIntern", () => {
     it("should add the intern's name to the roster", () => {
       const roster = ["Manager's Name", "Intern's Name"];
 
@@ -43,4 +41,5 @@ describe("Team", () => {
         expect(team.getRoster()).toEqual(roster);
     });
   });
+  */
 });
