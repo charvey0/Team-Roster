@@ -6,7 +6,7 @@ describe("Intern", () => {
         const str = "University of Somewhere";
     
         const intern = new Intern("Intern's Name", 1, "intern@somemail.com", "University of Somewhere");
-        const result = intern.getGithub();
+        const result = intern.getSchool();
 
         expect(result).toEqual(str);
       });

@@ -1,13 +1,14 @@
-const Manager = require("../scripts/team");
+const Manager = require("../scripts/manager");
 
 describe("Manager", () => {
   describe("officeNumber", () => {
-      it("should return the manager's office number", () => {
-        const num = 12;
+    it("should return the manager's office number", () => {
+      const num = 12;
   
-        const manager = new Manager("Manager's Name", 1, "manager@somemail.com", 12);
-        const result = manager.getOfficeNumber();
-        expect(result).toEqual(num);
+      const manager = new Manager("Manager's Name", 1, "manager@somemail.com", 12);
+      const result = manager.getOfficeNumber();
+    
+      expect(result).toEqual(num);
       });
   });
 
@@ -17,6 +18,7 @@ describe("Manager", () => {
 
       const manager = new Manager("Manager's Name", 1, "manager@somemail.com", 12);
       const result = manager.getRole();
+    
       expect(result).toEqual(str);
     });
   });
