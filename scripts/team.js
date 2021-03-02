@@ -141,9 +141,91 @@ class Team {
     } // end method
 
     generateHTML() {
+      var html = `<!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+          <style>
+              h1, h2 {
+                  color: azure;
+              }
+              .card-header {
+                  background-color: dimgray;
+              }
+          </style>
+          <script src="https://kit.fontawesome.com/d000141de3.js" crossorigin="anonymous"></script>
+          <title>Your Team</title>
+      </head>
+      <body>
+          <main>
+              <section class="jumbotron text-center bg-primary">
+                  <div class="container">
+                      <h1>My Team</h1>
+                  </div>
+              </section>
+              <div class="album py-5 bg-light">
+                  <div class="container">
+                      <div class="row">`;  
       this.members.forEach((member) => {
-          console.log(member.getRole());
+          const role = member.getRole();
+          html += `
+          <div class="col-md-4">
+          <div class="card mb-4 shadow-lg">
+              <div class="card-header">
+                  <h2>${member.getName()}</i></h2>
+                  <h4><i class="fas fa-`;
+            switch (role) {
+              case "Manager":
+                  html += `compass`;
+                  break;
+              case "Engineer":
+                  html += `tools`;
+                  break;
+              case "Intern":
+                   html += `school`;
+                   break;
+                }//end switch
+                      
+           html += `"></i> ${role}</h4>
+              </div>
+              <div class="card-body">
+                  <p class="card-text">Id: ${member.getId()}</p>
+                  <p>Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></p>
+                  <p>`;
+            switch (role) {
+                case "Manager":
+                    html += `Office Number: ${member.getOfficeNumber()}`;
+                    break;
+                case "Engineer":
+                    html += `GitHub Username: <a target="_blank" href="http://github.com/${member.getGithub()}">${member.getGithub()}</a>`;
+                    break;
+                case "Intern":
+                    html += `School: ${member.getSchool()}`;
+                    break;
+            }//end switch
+                  html +=`</p>
+              </div>
+          </div>
+      </div>`;
       });  //end forEach  
+
+      html += `
+      </div>
+      </div>
+  </div>
+</main>
+
+</body>
+</html>`;
+
+      fs.writeFile("team.html",html, (err) => {
+          if (err) throw err;
+          console.log('The file "team.html" has been created.');
+      });
+    
     }//end method
 } // end class
 
