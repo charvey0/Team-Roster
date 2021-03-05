@@ -157,7 +157,7 @@ class Team {
               }
           </style>
           <script src="https://kit.fontawesome.com/d000141de3.js" crossorigin="anonymous"></script>
-          <title>Your Team</title>
+          <title>My Team</title>
       </head>
       <body>
           <main>
